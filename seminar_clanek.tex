@@ -100,7 +100,14 @@ Z določanjem zaporedja particij iz drevesa naš proces generiranja trikotnikov,
 
 Te tri predpostavke so dovolj. Predpostavka~\ref{predpostavka_1} zagotavlja, da bosta dve stranici prvega trikotnika ležali na koordinatnih oseh. Predpostavka~\ref{predpostavka_2} poskrbi, da se novo generirane tangente tako razlikujejo od tangent iz prejšnjega koraka, da se tretja stranica novega trikotnika ne prekriva s prejšnjimi, sam trikotnik pa leži pod grafom. Predpostavka~\ref{predpostavka_3} pomeni, da se bo vsaka točka $ (x_0, y_0) $ v prvem kvadrantu, ki leži pod grafom, nahajala v vsaj kakšnem trikotniku.
 
-Računanje ploščine kateregakoli od teh trikotnikov je preprost izračun. Za primer vzemimo tri zaporedne točke iz nekega istega nivoja drevesa: $ 0 < x_1 < x_{1,2} < x_2 $. Točka $ x_{1,2} $ je generirana iz prejšnjih zaporednih točk $ x_1 $ in $ x_2 $. Znamo izračunati tangente na graf $ f $ v teh treh točkah ter medsebojna presečišča, kar so ravno vsi trije vrhovi novega trikotnika. Njegovo ploščino pa izračunamo iz vektorskega produkta poljubnih dveh vektorjev, ki iz enega vrha določata dve stranici tega trikotnika. V konkretnem primeru je računanje dokaj enostavno, v splošnem pa je ploščina tega trikotnika (ki jo lahko izpeljete sami, če imate veliko časa) enaka $ P = A^2/2B $, kjer sta
+Računanje ploščine kateregakoli od teh trikotnikov je preprost izračun. Za primer vzemimo tri zaporedne točke iz nekega istega nivoja drevesa: $ 0 < x_1 < x_{1,2} < x_2 $. Točka $ x_{1,2} $ je generirana iz prejšnjih zaporednih točk $ x_1 $ in $ x_2 $. Znamo izračunati tangente na graf $ f $ v teh treh točkah ter medsebojna presečišča, kar so ravno vsi trije vrhovi novega trikotnika. Njegovo ploščino pa izračunamo iz vektorskega produkta poljubnih dveh vektorjev, ki iz enega vrha določata dve stranici tega trikotnika. V konkretnem primeru je računanje dokaj enostavno, v splošnem pa je ploščina tega trikotnika enaka 
+
+\begin{equation}
+    \label{splosna_ploscina_formula}
+    P = \frac{A^2}{2B}\text{,}
+\end{equation}
+
+kjer sta
 
 \begin{align*}
     A =  &f'(x_1)f'(x_{1,2})(x_1 - x_{1,2}) + f'(x_1)f'(x_2)(x_2 - x_1) \\
@@ -113,7 +120,12 @@ $$
 B = (f'(x_1) - f'(x_{1,2}))(f'(x_1) - f'(x_2))(f'(x_2) - f'(x_{1,2}))\text{.}
 $$
 
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{slike/splosna_ploscina.png}
+    \caption{Primer funkcije v programu Wolfram Mathemtatica, ki izračuna splošno ploščino (pod predpostavko, da se vse tri tangente paroma sekajo).}
+    \label{splosna_ploscina}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,7 +144,7 @@ Zlahka preverimo, da za $ g $ in to drevo veljajo vse tri potrebne predpostavke.
 
 Označimo nivoje drevesa z $ n $. Nivo $ 0 $ sta točki $ (0)^2 $ in $ (1)^2 $, nivo $ 1 $ točke $ (0)^2 $, $ \bigl(\frac{1}{2}\bigr)^2 $ in $ (1)^2 $, nivo $ 2 $ točke $ (0)^2 $, $ \bigl(\frac{1}{4}\bigr)^2 $, $ \bigl(\frac{1}{2}\bigr)^2 $, $ \bigl(\frac{3}{4}\bigr)^2 $, in $ (1)^2 $, \ldots v splošnem torej nivo $ n $ predstavljajo točke $ (0)^2 $, $ \bigl(\frac{1}{2^n}\bigr)^2 $, $ \bigl(\frac{2}{2^n}\bigr)^2 $, $ \bigl(\frac{3}{2^n}\bigr)^2 $, \ldots, $ \bigl(\frac{2^n-2}{2^n}\bigr)^2 $, $ \bigl(\frac{2^n-1}{2^n}\bigr)^2 $ in $ (1)^2 $. Z vsakim nivojem dobimo nove točke, s tem pa tudi nove trikotnike -- natančneje, v nivoju n generiramo $ 2^{n-1} $ novih točk/trikotnikov.
 
-Izkaže se, da je ploščina trikotnikov, ki jih dobimo v vsakem nivoju, enaka in odvisna le od $ n $. Do nje pridemo postopoma: najprej premislimo, da je vsak nov trikotnik v nivoju $ n $ odvisen od treh sosednjih točk na tem nivoju, od katerih je srednja tista, ki je na novo generirana. Tako lahko nivo $ n $ razdelimo na $ 2^{n-1} $ trojic: $ \{(0)^2, \bigl(\frac{1}{2^n}\bigr)^2,\bigl(\frac{2}{2^n}\bigr)^2\} $, $ \{\bigl(\frac{2}{2^n}\bigr)^2, \bigl(\frac{3}{2^n}\bigr)^2, \bigl(\frac{4}{2^n}\bigr)^2\} $, \ldots, $ \{\bigl(\frac{2^n-2}{2^n}\bigr)^2, \bigl(\frac{2^n-1}{2^n}\bigr)^2, (1)^2\}$. Označimo s $ k $ zaporedno mesto novo generirane točke v $ n $-tem nivoju, torej $ k = 1, 3, 5, \ldots, 2^n-1 $. Za vsak $ k $ lahko izračunamo \footnote{Primer izračuna v Wolfram Mathematici: glej~\ref{ilustrativen_primer_wolfram}} ploščino novega trikotnika, ki ima za oglišča presečišča tangenta v točkah $ \{\bigl(\frac{k-1}{2^n}\bigr)^2, \bigl(\frac{k}{2^n}\bigr)^2, \bigl(\frac{k+1}{2^n}\bigr)^2\} $. Ploščina je res neodvisna od $ k $ in znaša $ \frac{1}{2^{3n}} $.
+Izkaže se, da je ploščina trikotnikov, ki jih dobimo v vsakem nivoju, enaka in odvisna le od $ n $. Do nje pridemo postopoma: najprej premislimo, da je vsak nov trikotnik v nivoju $ n $ odvisen od treh sosednjih točk na tem nivoju, od katerih je srednja tista, ki je na novo generirana. Tako lahko nivo $ n $ razdelimo na $ 2^{n-1} $ trojic: $ \{(0)^2, \bigl(\frac{1}{2^n}\bigr)^2,\bigl(\frac{2}{2^n}\bigr)^2\} $, $ \{\bigl(\frac{2}{2^n}\bigr)^2, \bigl(\frac{3}{2^n}\bigr)^2, \bigl(\frac{4}{2^n}\bigr)^2\} $, \ldots, $ \{\bigl(\frac{2^n-2}{2^n}\bigr)^2, \bigl(\frac{2^n-1}{2^n}\bigr)^2, (1)^2\}$. Označimo s $ k $ zaporedno mesto novo generirane točke v $ n $-tem nivoju, torej $ k = 1, 3, 5, \ldots, 2^n-1 $. Za vsak $ k $ lahko s pomočjo formule~\ref{splosna_ploscina_formula} izračunamo ploščino novega trikotnika, ki ima za oglišča presečišča tangenta v točkah $ \{\bigl(\frac{k-1}{2^n}\bigr)^2, \bigl(\frac{k}{2^n}\bigr)^2, \bigl(\frac{k+1}{2^n}\bigr)^2\} $. Ploščina je res neodvisna od $ k $ in znaša $ \frac{1}{2^{3n}} $.
 
 Sedaj lahko izračunamo ploščino pod grafom funkcije $ g $. Trikotnike dobimo od nivoja $ 1 $ naprej, zato je $ n = 1, 2, 3, 4, \ldots $. Na $ n $-tem koraku dobimo $ 2^{n-1} $ novih trikotnikov s ploščino $ \frac{1}{2^{3n}} $. Premisliti moramo le uvedbo nove spremenljivke, ki bo namesto $ k $ tekla po zaporednih celih številih: vzamemo npr. $ t = \frac{k-1}{2} $, torej $ t = 0, 1, 2, 3, \ldots, 2^{n-1}-1 $. Ploščina pod grafom je tako res enaka
 
@@ -140,23 +152,26 @@ Sedaj lahko izračunamo ploščino pod grafom funkcije $ g $. Trikotnike dobimo 
     \sum_{n=1}^{\infty} \sum_{t=0}^{2^{n-1}-1} \frac{1}{2^{3n}} = \sum_{n=1}^{\infty} \frac{2^{n-1}}{2^{3n}} = \sum_{n=1}^{\infty} \frac{1}{2^{2n+1}} = \sum_{n=0}^{\infty} \frac{1}{2^{2n+3}} = \frac{1}{2^3} \frac{1}{1-\frac{1}{2^2}} = \frac{1}{6}\text{.}
 \end{equation*}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{slike/ilustrativen_primer_wolfram.png}
+    \caption{Izračun ploščine trikotnikov iz $ n $-tega nivoja danega drevesa ter celotna ploščina pod območjem funkcije $ g $.}
+    \label{ilustrativen_primer_wolfram}
+\end{figure}
+
 Ta primer med drugim tudi prikazuje še en način generiranja gostih podmnožic domene funkcije.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generiranje gostih podmnožic z uporabo \\ Stern-Brocotovega drevesa}
 
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zaključek}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Priloge}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{slike/ilustrativen_primer_wolfram.png}
-    \caption{Program izračuna ploščino trikotnika, katerega oglišča določajo tangente na izbrano funkijo v treh točkah (pod predpostavko, da se tangente paroma sekajo). Nadalje je izračunana ploščina trikotnikov iz $ n $-tega nivoja ter celotna ploščina pod območjem funkcije $ g $ (gl.~\ref{ilustrativen_primer}).}
-    \label{ilustrativen_primer_wolfram}
-\end{figure}
+KAKO PA GENERIRAMO TA DREVESA??? JE USELIH????
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \nocite{*}      % navede tudi vire, ki jih ne citiras
