@@ -51,7 +51,7 @@
 
 Naj bo $ f: [a,b] \rightarrow \mathbb{R} $ zvezna in pozitivna funkcija. Ploščino pod njenim grafom tipično aproksimiramo z Riemannovo vsoto oz. pravokotniki, da v limiti dobimo vrednost $ \int_{a}^{b}f(x)dx $. V nalogi si bomo ogledali metodo, ki integral konveksnih funkcij izračuna s pomočjo trikotnih območij.
 
-????? Naš pristop temelji na generiranju goste \footnote{definicija: Množica D je \emph{gosta} v topološkem prostoru X natanko tedaj, kadar je presek množice D z vsako neprazno odprto podmnožico v X neprazen. V našem primeru to pomeni, da se v vsakem odprtem podintervalu intervala integriranja nahaja vsaj en element iz te podmmnožice.} podmnožice intervala, po katerem integriramo, preko neskončnega binarnega drevesa. To drevo generira vrsto, ki jo definira funkcija, ki jo integriramo, ter izbira vozlišč, zato lahko dobimo znano ali manj znano vrsto, za katero lahko vidimo, ali divergira ali konvergira in če, h kateri vrednosti. Še posebej zanimiv primer izhaja iz Stern-Brocot drevesa, ki izhaja iz enega tipa zeta funkcij.
+????? Naš pristop temelji na generiranju goste~\footnote{Množica D je \emph{gosta} v topološkem prostoru X natanko tedaj, kadar je presek množice D z vsako neprazno odprto podmnožico v X neprazen. V našem primeru to pomeni, da se v vsakem odprtem podintervalu intervala integriranja nahaja vsaj en element iz te podmmnožice.} podmnožice intervala, po katerem integriramo, preko neskončnega binarnega drevesa. To drevo generira vrsto, ki jo definira funkcija, ki jo integriramo, ter izbira vozlišč, zato lahko dobimo znano ali manj znano vrsto, za katero lahko vidimo, ali divergira ali konvergira in če, h kateri vrednosti. Še posebej zanimiv primer izhaja iz Stern-Brocot drevesa, ki izhaja iz enega tipa zeta funkcij.
 
 
 \newpage
@@ -65,7 +65,7 @@ Začnimo z mejama intervala $ 0 $ in $ \infty $. Med njiju vrinimo delilno točk
 \begin{figure}[h]
     \centering
     \includegraphics{slike/uvodni_primer_drevo.png}
-    \caption{Vzeto iz~\cite{osnovni_clanek}}
+    \caption{Vzeto iz~\cite{osnovni_clanek}.}
     \label{uvodni_primer_drevo}
 \end{figure}
 
@@ -74,11 +74,11 @@ Opazimo (in tudi vemo), da sta $ x $- in $ y $-osi asimptoti na graf $ f $, tore
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{slike/uvodni_primer_prvi_trikotniki.png}
-    \caption{Prve tri tangente v particiji območja na trikotnike. Vzeto iz~\cite{osnovni_clanek}}
+    \caption{Prve tri tangente v particiji območja na trikotnike. Vzeto iz~\cite{osnovni_clanek}.}
     \label{uvodni_primer_prvi_trikotniki}
 \end{figure}
 
-Kratek izračun pokaže, da je ploščina vseh trikotnikov, ki z eno stranico ležino na eni od koordinatnih osi (razen prvega trikotnika z ogliščem v izhodišču) konstantna z vrednostjo $ 2/3 $. Iz tega sledi, da je ploščina pod območjem (ki je vsota ploščin vseh trikotnikov) navzgor neomejena, saj je divergentna že vsota ploščin trikotnikov ob oseh. To je v skladu z vrednostjo izlimitiranega integrala $ \int_{0}^{\infty}\frac{1}{x}dx $. S tem načinom razdelitve območja na trikotnike lahko povežemo območje pod grafom in neskončno vrsto, ki ustreza ploščini teh trikotnikov.
+Kratek izračun pokaže, da je ploščina vseh trikotnikov, ki z eno stranico ležino na eni od koordinatnih osi (razen prvega trikotnika z ogliščem v izhodišču) konstantna z vrednostjo $ 2/3 $ (VKLJUČI TA IZRAČUN?????). Iz tega sledi, da je ploščina pod območjem (ki je vsota ploščin vseh trikotnikov) navzgor neomejena, saj je divergentna že vsota ploščin trikotnikov ob oseh. To je v skladu z vrednostjo izlimitiranega integrala $ \int_{0}^{\infty}\frac{1}{x}dx $. S tem načinom razdelitve območja na trikotnike lahko povežemo območje pod grafom in neskončno vrsto, ki ustreza ploščini teh trikotnikov.
 
 Sedaj lahko raziščemo obnašanje teh vrst na primerih različnih funkcij in na različnih števnih gostih podmnožic.
 
@@ -88,19 +88,19 @@ Sedaj lahko raziščemo obnašanje teh vrst na primerih različnih funkcij in na
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Splošnejša obravnava problema}
 
-Pri Riemannovem integralu poskrbimo za vedno finejšo particijo intervalov, ki ustvari pravokotna območja, ki v limiti skupaj tvorijo območje pod grafom. Naš pristop je podoben, le da mora biti zaporedje particij dovolj urejeno, da lahko dobimo ustrezne trikotnike. Le-to pa omogoča neskončno binarno drevo.
+Pri Riemannovem integralu poskrbimo za vedno finejšo particijo intervalov, iz katere so ustvarjena pravokotna območja, ki skupaj v limiti, ko gre širina podintervalov proti 0, tvorijo območje pod grafom. Naš pristop je podoben, le da mora biti zaporedje particij dovolj organizirano, da lahko dobimo ustrezne trikotnike. Le-to pa omogoča neskončno binarno drevo.
 
 Z določanjem zaporedja particij iz drevesa naš proces generiranja trikotnikov, ki napolnijo območje pod grafom funkcije $ f $, potrebuje le nekaj ključnih predpostavk:
 
 \begin{enumerate}
-    \item \label{predpostavka_1} Funkcija $ f $ je definirana na intervalu oblike $(0, \infty)$, $[0,\infty)$, $(0,a]$ ali $[0,a]$, kjer je $ 0 < a < \infty $, in ????????????? sta $x$- in $y$-os tangentni nanjo v točki 0 ter (če imamo končen interval) $a$, ali pa sta ena ali obe osi njeni asimptoti.
-    \item \label{predpostavka_2} Funkcija $ f $ je dvakrat zvezno odvedljiva, strogo monotono padajoča ($ f'(x) < 0 $) in strogo konveksna ($ f''(x) > 0 $) za vsak $ x \in A$ (razen krajišči), kjer je $ A $ interval oblike, kot ga navaja točka~\ref{predpostavka_1}.
+    \item \label{predpostavka_1} Funkcija $ f $ je definirana na intervalu oblike $(0, \infty)$, $[0,\infty)$, $(0,a]$ ali $[0,a]$, kjer je $ 0 < a < \infty $, in sta $x$- in $y$-os v točkah 0 ter $a$ (oz. v $ \infty $) njeni tangenti (oz. asimptoti, odvisno od oblike intervala).
+    \item \label{predpostavka_2} Funkcija $ f $ je dvakrat zvezno odvedljiva, strogo monotono padajoča ($ f'(x) < 0 $) in strogo konveksna ($ f''(x) > 0 $) za vsak $ x \in A$ (razen v krajiščih), kjer je $ A $ interval oblike, kot ga navaja točka~\ref{predpostavka_1}.
     \item \label{predpostavka_3} Množica, generirana iz neskončnega binarnega drevesa, je gosta podmnožica intervala $ A $.
 \end{enumerate}
 
 Te tri predpostavke so dovolj. Predpostavka~\ref{predpostavka_1} zagotavlja, da bosta dve stranici prvega trikotnika ležali na koordinatnih oseh. Predpostavka~\ref{predpostavka_2} poskrbi, da se novo generirane tangente tako razlikujejo od tangent iz prejšnjega koraka, da se tretja stranica novega trikotnika ne prekriva s prejšnjimi, sam trikotnik pa leži pod grafom. Predpostavka~\ref{predpostavka_3} pomeni, da se bo vsaka točka $ (x_0, y_0) $ v prvem kvadrantu, ki leži pod grafom, nahajala v vsaj kakšnem trikotniku.
 
-Računanje ploščine kateregakoli od teh trikotnikov je preprost izračun. Za primer vzemimo tri zaporedne točke iz nekega istega nivoja drevesa: $ 0 < x_1 < x_{1,2} < x_2 $. Točka $ x_{1,2} $ je generirana iz prejšnjih zaporednih točk $ x_1 $ in $ x_2 $. Znamo izračunati tangente na graf $ f $ v teh treh točkah ter medsebojna presečišča, kar so ravno vsi trije vrhovi novega trikotnika. Njegovo ploščino pa izračunamo iz vektorskega produkta poljubnih dveh vektorjev, ki iz enega vrha določata dve stranici tega trikotnika. V konkretnem primeru je računanje dokaj enostavno, v splošnem pa je ploščina tega trikotnika enaka 
+Računanje ploščine kateregakoli od teh trikotnikov je idejno preprost izračun. Za primer vzemimo tri zaporedne točke iz nekega istega nivoja drevesa: $ 0 < x_1 < x_{1,2} < x_2 $. Naj bo točka $ x_{1,2} $ generirana iz prejšnjih zaporednih točk $ x_1 $ in $ x_2 $. Znamo izračunati tangente na graf $ f $ v teh treh točkah ter medsebojna presečišča, kar so ravno vsi trije vrhovi novega trikotnika, iz koordinat oglišč pa znamo izračunati ploščino trikotnika. V konkretnem primeru je računanje dokaj enostavno, v splošnem pa je ploščina tega trikotnika enaka 
 
 \begin{equation}
     \label{splosna_ploscina_formula}
@@ -131,12 +131,12 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Ilustrativen primer} \label{ilustrativen_primer}
 
-Vzemimo funkcijo $ g(x) = (1 - \sqrt{x})^2 $ na $ [0, 1] $ in drevo, ki ga prikazuje slika~\ref{ilustrativen_primer_drevo}. Nekoliko je podobno drevesu iz uvodnega primera.
+Vzemimo funkcijo $ g(x) = (1 - \sqrt{x})^2 $ na $ [0, 1] $ in drevo, ki ga prikazuje slika~\ref{ilustrativen_primer_drevo}. Vsako novo vozlišče se nahaja natanko med prejšnjima dvema (če odmislimo kvadriranje).
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{slike/ilustrativen_primer_drevo.png}
-    \caption{Vzeto iz~\cite{osnovni_clanek}}
+    \caption{Vzeto iz~\cite{osnovni_clanek}.}
     \label{ilustrativen_primer_drevo}
 \end{figure}
 
@@ -162,14 +162,122 @@ Sedaj lahko izračunamo ploščino pod grafom funkcije $ g $. Trikotnike dobimo 
 Ta primer med drugim tudi prikazuje še en način generiranja gostih podmnožic domene funkcije.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Generiranje gostih podmnožic z uporabo \\ Stern-Brocotovega drevesa}
+\section[Generiranje gostih podmnožic z uporabo Stern-Brocotovega drevesa]{Generiranje gostih podmnožic z uporabo\\ Stern-Brocotovega drevesa \sectionmark{Stern-Brocotovo drevo}}
+\sectionmark{Stern-Brocotovo drevo}
+
+Še en način razdelitve intervala $ [0, \infty) $ na sliki~\ref{stern-brocot_tree} prikazuje t.i. Stern-Brocotovo drevo\footnote{angl. Stern-Brocot tree, op. prev.}. Neodvisno drug od drugega sta ga odkrila nemški matematik Moritz Stern leta 1858 in francoski urar Achille Brocot leta 1861. Drevo se začne z mejama intervala, ki ju lahko zapišemo v obliki $ \frac{0}{1}$ in $ \frac{1}{0} $, števila v drevesu pa generiramo kot mediante sosednjih ulomkov na istem nivoju. \emph{Mediant} dveh racionalnih števil $ \frac{a}{b} $ in $ \frac{c}{d} $ je definiran kot $ \frac{a+c}{b+d} $.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{slike/stern-brocot_tree.png}
+    \caption{Stern-Brocotovo drevo. Vzeto iz~\cite{osnovni_clanek}.}
+    \label{stern-brocot_tree}
+\end{figure}
+
+\subsection{Lastnosti Stern-Brocotovega drevesa}
+
+\begin{enumerate}
+    \item \label{prva_znacilnost}
+    Za sosednja ulomka istega nivoja drevesa $ \frac{a}{b} < \frac{c}{d} $ velja $ \frac{a}{b} < \frac{a+c}{b+d} < \frac{c}{d} $. Preprost računski dokaz prepuščam bralcu.
+    \item Za sosednja ulomka $ \frac{a}{b} < \frac{c}{d} $ je očitno $ bc - ad > 0 $. Velja celo več: $ bc - ad = 1 $.
+    
+    To dokažemo z indukcijo na nivojih drevesa. Za 0-ti in prvi nivo trditev očitno velja. Recimo sedaj, da velja tudi za vse do $ n $-tega nivoja. V $ n+1$-vem nivoju skonstruiramo novo število, za katerega iz~\ref{prva_znacilnost} velja $ \frac{a}{b} < \frac{a+c}{b+d} < \frac{c}{d} $. Upoštevamo indukcijsko predpostavko in izračunamo: $ c(b+d) - d(a+c) = bc-ad = 1 $ ter $ b(a+c) - a(b+d)  = bc-ad = 1 $.
+    \item Vsak element drevesa je pozitiven okrajšan ulomek. (?????) Opazimo tudi, da se v Stern-Brocotovem drevesu pojavijo prav vsa pozitivna racionalna števila. (??????)
+\end{enumerate}
+
+\subsection{Ploščina pod grafom funkcije $ g $}
+
+Izračunajmo ploščino pod grafom iste funkcije $ g(x) = (1 - \sqrt{x})^2 $, ki smo jo definirali v~\ref{ilustrativen_primer}, le da so delilne točke intervala $ [0,1] $ sedaj kvadratne vrednosti v vozliščih leve polovice Stern-Brocotovega drevesa. V funkcijo~\ref{splosna_ploscina_formula} za splošno ploščino damo splošne tri zaporedne točke $ \frac{a}{b} < \frac{a+c}{b+d} < \frac{c}{d} $, ki na enem koraku generirajo nov trikotnik, in dobimo $ \frac{1}{2b^2d^2(b+d)^2} $. Skupna ploščina se torej izračuna po razmisleku, da v celotni levi polovici drevesa $ b $ in $ d $ pretečeta vsa naravna števila, vendar imata vsaka sosednja ulomka tuje imenovalce, torej vzamemo le tuje pare $ (b,d) $ (????????):
+
+\begin{equation}
+    \sum_{\substack{b,d=1 \\ (b,d)=1}}^{\infty} \frac{1}{2b^2d^2(b+d)^2} = \frac{1}{6}\text{.}
+    \label{SB_ilustrativen_primer}
+\end{equation}
+
+S tem primerom smo pokazali, kako različna delitev istega intervala porodi drugačno obliko neskončne vrste. Formula~\ref{SB_ilustrativen_primer} je posebni primer bolj splošne funkcije, imenovane \emph{Mordell-Tornheim zeta funkcija}, ki ima splošno obliko
+
+\begin{equation}
+    \sum_{(m,n)=1}^{\infty} \frac{1}{m^{s_1}n^{s_2}(m+n)^{s3}}\text{.}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Razred konvergentnih vrst}
+
+Tudi če za funkcijo iz motivacijskega primera, $ f(x) = \frac{1}{x} $, uporabimo zgornji dve drevesi, dobimo divergentno vrsto. (???? KAKŠNO????). Ali znamo generirati konvergentno vrsto iz funkcij, podobnih $ g $ iz~\ref{ilustrativen_primer}? Na primer iz dela enotske krožnice $ (x-1)^2+(y-1)^2=1 $ na $ [0,1] \times [0,1]$ ali funkcije $ y = (1-\sqrt[3]{x})^3 $ na $ [0,1] $? Izkaže se, da preoblikovanje drevesa pripomore k poenostavljenemu računanju ploščin trikotnikov, vendar v obeh primerih ne dobimo neke enostavne, lepe vrste.
+
+Primer funkcije, kjer pa lahko dobimo družino neskončnih vrst še kar lepe oblike, je $ f(x)=x^{-1/r} $ na $ [0,1] $ za $ r \in \mathbb{N}; r > 1 $. Vzemimo drevo, kot kaže slika~\ref{r_drevo} (za $ r = 2 $ dobimo drevo iz~\ref{ilustrativen_primer}):
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{slike/r_drevo.png}
+    \caption{Vzeto iz~\cite{osnovni_clanek}.}
+    \label{r_drevo}
+\end{figure}
+
+Kot v~\ref{ilustrativen_primer} na enak način izračunamo ploščino trikotnika v $ n $-tem nivoju iz trojice zaporednih točk $ \{\bigl(\frac{k-1}{2^n}\bigr)^r, \bigl(\frac{k}{2^n}\bigr)^r, \bigl(\frac{k+1}{2^n}\bigr)^r\} $, kjer $ k = 1, 3, 5, \ldots, 2^n-1 $ označuje zaporedno mesto novo generirane točke v $ n $-tem nivoju. Ploščina je tokrat odvisna od $ k $ in znaša
+
+\begin{equation*}
+    P_k = \frac{
+        \bigl(((k-1)k)^r + (k(k+1))^r - 2(k^2-1)^r\bigr)^2(1+r)^2
+    }{
+        2^{nr-n+1} r \bigl(k^{r+1} - (k-1)^{r+1}\bigr) \bigl((k+1)^{r+1} - (k-1)^{r+1}\bigr) \bigl((k+1)^{r+1} - k^{r+1}\bigr)
+    }\text{.}
+\end{equation*}
+
+Za izračun celotne ploščine zopet uporabimo zvezo $ t = \frac{k-1}{2} $:
+
+\begin{equation}
+    P = \sum_{n=0}^{\infty} \sum_{t=0}^{2^n-1}
+    \frac{
+        \bigl(t^r (2t+1)^r - 2^{r+1} t^r (t+1)^r + (2t+1)^r(t+1)^r\bigr)^2(1+r)^2
+    }{
+        2^{nr-n+1}r
+        \bigl((2t+1)^{r+1}-(2t)^{r+1}\bigr)
+        \bigl((t + 1)^{r+1} - t^{r+1}\bigr)
+        \bigl((2t + 2)^{r+1} - (2t+1)^{r+1}\bigr)
+    }
+    \label{splosen_r}
+\end{equation}
+
+\begin{equation}
+    \text{ oz. za } r = 2 \text{ dobimo }
+    P' = \sum_{n=0}^{\infty} \sum_{t=0}^{2^n-1} \frac{9(6t^2+6t+1)^2}{2^n(1+27(2t+1)^6)}\text{.}
+    \label{r2_primer}
+\end{equation}
+
+Opazimo, da funkcija $ f $ ne ustreza povsem predpostavki~\ref{predpostavka_1}, saj na $ [0,1] $ $ x $-os ni njena tangenta (gl. sliko~\ref{r_funkcija}). Zato vrsta~\ref{splosen_r}, ki jo dobimo za splošen $ r $, ne nujno konvergira k vrednosti $ \int_{0}^{1}f(x)dx $. Vendar je popravek k formuli enostaven -- izračunamo ploščino trapeznega območja, ki ni pokrito s trikotniki, ter to odštejemo od določenega integrala in dobimo vrednost vrste. Za $ r = 2 $ tako vrsta~\ref{r2_primer} konvergira k $ \int_{0}^{1}\frac{1}{x^{1/2}}dx - \frac{5}{4} = \frac{3}{4} $, za splošno funckijo $ f(x)=x^{-1/r} $ pa njena vrsta~\ref{splosen_r} konvergira proti
+
+\begin{equation*}
+    \int_{0}^{1}\frac{1}{x^{1/r}}dx - \frac{2r+1}{2r} = \frac{r+1}{2r(r-1)}\text{.}
+\end{equation*}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{slike/r_funkcija.png}
+    \caption{Sivoobarvano območje pod $ f(x) = x^{-1/r} $ ni trikotnik. Vzeto iz~\cite{osnovni_clanek}.}
+    \label{r_funkcija}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rimannova zeta funkcije}
+
+
 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zaključek}
 
-KAKO PA GENERIRAMO TA DREVESA??? JE USELIH????
+Glavna ideja računanja ploščine območja pod grafom s trikotniki je torej uporabiti neskončno binarno drevo, ki določen interval razdeli na goste podmnožice. Iz tega drevesa dobimo neskončno vrsto, ki je za isti določen integral pri različnih drevesih tudi sama različne oblike, njena vsota pa se seveda ne spremeni.
+
+Tu se poraja vprašanje, kako sploh generiramo ta drevesa. Ali je kakršnakoli gosta delitev vredu? Kako lahko zagotovimo, da z nekim drevesom dobimo vrsto, ki jo znamo izračunati brez pomoči kalkulatorja?
+
+Ali lahko naredimo obratno in če da, pod katerimi pogoji -- iz dane vrste sproduciramo funkcijo, ki ji odgovarja?
+
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
